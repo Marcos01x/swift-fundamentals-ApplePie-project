@@ -18,10 +18,16 @@ class ViewController: UIViewController {
     let incorrectMovesAllowed = 7
     var totalWins = 0
     var totalLosses = 0
+    var currentGame: Game!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        newRound()
+    }
+
+    func newRound() {
+        let newWord = listOfWords.removeFirst()
+        currentGame = Game(word: newWord, incorrectMovesRemaining: incorrectMovesAllowed)
     }
 
     @IBAction func letterButtonPressed(_ sender: UIButton) {
